@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio de Uma Semana de Desinflamação - +Maravilhosa</title>
 
+    <!-- ====== Facebook Pixel Code ====== -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n;
+        n.loaded=!0;
+        n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e);
+        t.async=!0;
+        t.src=v;
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+        }(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '595481199331116');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1"
+           width="1"
+           style="display:none"
+           src="https://www.facebook.com/tr?id=595481199331116&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- ====== Fim do Facebook Pixel Code ====== -->
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -244,6 +272,29 @@
             border: 3px solid #FCF9CE;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
+        /* =====================================================================
+   Container que se ajusta à proporção original da imagem (largura fixa)
+   ===================================================================== */
+.tata-photo-rect {
+  width: 200px;            /* largura fixa (ou a que você quiser) */
+  height: auto;            /* altura definida pela proporção da imagem */
+  border-radius: 10px;     /* cantos arredondados (opcional) */
+  overflow: hidden;        /* esconde excessos, se houver */
+  border: 3px solid #FCF9CE;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(252, 249, 206, 0.2);
+
+  /* <<< adicionando margin para centralizar >>> */
+  margin: 0 auto;         /* centraliza o container na horizontal */
+  display: block;         /* garante que margin:auto funcione */
+}
+
+/* Faz a imagem encaixar inteiramente na largura de 200px */
+.tata-photo-rect .tata-img-rect {
+  width: 100%;
+  height: auto;                   /* mantém a proporção original */
+  display: block;
+}
 
         .video-container {
             margin: 30px 0;
@@ -509,7 +560,7 @@
                 height: 250px;
             }
         }
-        
+
         .habits-list li a:hover {
           text-decoration: underline;
           color: #DEA37B;
@@ -732,6 +783,15 @@
             </li>
             <li>
                 <a
+                    href="planner.pdf"
+                    download
+                    style="color: inherit; text-decoration: none;"
+                >
+                    📥 Baixar seu Planner
+                </a>
+            </li>
+            <li>
+                <a
                     href="https://renataborbanutri.github.io/water/"
                     target="_blank"
                     style="color: inherit; text-decoration: none;"
@@ -744,17 +804,20 @@
 
         <!-- Seção da Tata -->
         <div class="tata-section">
-            <h2>🤖 Conheça a TATA - Sua Nutri Inteligente!</h2>
+            <h2>Conheça a TATA - Nutri sempre com você!</h2>
             <p>
                 A Tata é uma calculadora inteligente com infinitas combinações de
                 alimentos, atendendo todas as suas necessidades nutricionais. A Tata
                 é a Nutri que está sempre com você!
             </p>
 
-            <div class="tata-photo">
-                📱 Foto da Tata<br>
-                (Adicionar sua imagem aqui)
-            </div>
+            <div class="tata-photo-rect">
+                <img
+                  src="tata.jpeg"
+                  alt="Foto da Tata"
+                  class="tata-img-rect"
+                />
+              </div>
 
             <div class="video-container">
                 <iframe
