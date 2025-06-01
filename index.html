@@ -1,220 +1,745 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Avaliação de Inflamação</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Uma Semana de Desinflamação - +Maravilhosa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fffaf8;
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      background: white;
-      margin: 0 auto;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 180px;
-    }
-    h1 {
-      text-align: center;
-      color: #b03574;
-      font-weight: 700;
-    }
-    p {
-      font-size: 16px;
-    }
-    .symptom {
-      margin: 8px 0;
-    }
-    input[type="checkbox"] {
-      margin-right: 10px;
-      transform: scale(1.2);
-    }
-    button {
-      background-color: #b03574;
-      color: white;
-      border: none;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 8px;
-      width: 100%;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #902d5c;
-    }
-    .result {
-      margin-top: 25px;
-      background-color: #fff0f4;
-      border-left: 5px solid #b03574;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .promo-text {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .promo-text a.button {
-      display: inline-block;
-      background-color: #b03574;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    .promo-text a.button:hover {
-      background-color: #902d5c;
-    }
-    .whatsapp-share {
-      text-align: center;
-      margin-top: 15px;
-    }
-    .whatsapp-share a {
-      background-color: #25D366;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      display: inline-block;
-      font-size: 16px;
-    }
-    .whatsapp-share a:hover {
-      background-color: #1ebe5d;
-    }
-  </style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 200px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            color: #ff6b6b;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cta-badge {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .day-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .day-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .day-header h3 {
+            font-size: 1.3em;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+
+        .habits-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .habits-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .habits-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .habits-list li::before {
+            content: '☐ ';
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #ff6b6b;
+        }
+
+        .sleep-hygiene {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .sleep-hygiene h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sleep-hygiene h4::before {
+            content: '🌙 ';
+            margin-right: 10px;
+        }
+
+        .tata-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 25px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .tata-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tata-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .tata-photo {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .video-container {
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20b358;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn::before {
+            content: '📱 ';
+            margin-right: 10px;
+        }
+
+        .final-cta {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .final-cta h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .programa-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffa8a8 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 25px;
+            margin: 50px 0 30px 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .about-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-placeholder {
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            text-align: center;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-text .final-message {
+            font-size: 1.3em;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .about-photo img,
+            .photo-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+
+        .programa-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .programa-section p {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .benefits-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 4px solid white;
+            padding-left: 20px;
+        }
+
+        .programa-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 25px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .programa-btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #4CAF50;
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .day-card {
+                padding: 20px;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">+Maravilhosa</div>
+            <h1>Desafio de Uma Semana de Desinflamação</h1>
+            <p>Transforme sua vida em 7 dias com hábitos poderosos!</p>
+            <div class="cta-badge">🎉 VOCÊ É EXTRAORDINÁRIA POR QUERER MUDAR! 🎉</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
 
-  <!-- LOGO -->
-  <img src="logo.png" alt="Logo da Avaliação" class="logo" />
+        <!-- Segunda-feira -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>SEGUNDA-FEIRA</h2>
+                <h3>O DESPERTAR DO CORPO</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Adicionar uma pitada de sal integral</li>
+                <li>Evitar açúcar escondido (olhar rótulos)</li>
+                <li>Montar refeições completas</li>
+                <li>Fazer 5 min de respiração ou alongamento</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Desligar telas 30 min antes de dormir.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">🌟 INCRÍVEL! VOCÊ ESTÁ TRANSFORMANDO SUA VIDA! 🌟</div>
+        </div>
 
-  <div class="container">
-    <h1>Autoavaliação da Inflamação</h1>
-    <p>Marque os sintomas que você sente com frequência:</p>
+        <!-- Terça-feira -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>TERÇA-FEIRA</h2>
+                <h3>LIMPEZA INTERNA</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Continuar com água + sal integral</li>
+                <li>Evitar óleos inflamatórios</li>
+                <li>Comer folhas amargas</li>
+                <li>Deitar 30 min mais cedo</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Ritual relaxante (banho morno, chá calmante, leitura).</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">💪 VOCÊ É INCRÍVEL! CONTINUE ASSIM! 💪</div>
+        </div>
 
-    <!-- Sintomas -->
-    <div class="symptom"><input type="checkbox" value="Intestino" class="sintoma"> Barriga inchada ou gases</div>
-    <div class="symptom"><input type="checkbox" value="Intestino" class="sintoma"> Constipação ou intestino solto</div>
-    <div class="symptom"><input type="checkbox" value="Pele" class="sintoma"> Acne, rosácea ou pele irritada</div>
-    <div class="symptom"><input type="checkbox" value="Hormonal" class="sintoma"> TPM intensa ou ciclo irregular</div>
-    <div class="symptom"><input type="checkbox" value="Articulações" class="sintoma"> Dor nas articulações</div>
-    <div class="symptom"><input type="checkbox" value="Cérebro" class="sintoma"> Cansaço excessivo ou névoa mental</div>
-    <div class="symptom"><input type="checkbox" value="Fígado" class="sintoma"> Enjoo com alimentos gordurosos</div>
-    <div class="symptom"><input type="checkbox" value="Sono" class="sintoma"> Dificuldade para dormir ou sono não reparador</div>
-    <div class="symptom"><input type="checkbox" value="Metabolismo" class="sintoma"> Dificuldade em perder peso</div>
-    <div class="symptom"><input type="checkbox" value="Inflamação hormonal" class="sintoma"> Gordura na região abdominal</div>
-    <div class="symptom"><input type="checkbox" value="Rins" class="sintoma"> Acorda muito para fazer xixi</div>
-    <div class="symptom"><input type="checkbox" value="Microbiota" class="sintoma"> Candidíase</div>
-    <div class="symptom"><input type="checkbox" value="Urinário" class="sintoma"> Infecção urinária</div>
-    <div class="symptom"><input type="checkbox" value="Neurológico" class="sintoma"> Dores de cabeça</div>
-    <div class="symptom"><input type="checkbox" value="Muscular/Imune" class="sintoma"> Dor no corpo</div>
-    <div class="symptom"><input type="checkbox" value="Imunológico" class="sintoma"> Alergias</div>
-    <div class="symptom"><input type="checkbox" value="Hormonal" class="sintoma"> Ressecamento vaginal</div>
-    <div class="symptom"><input type="checkbox" value="Hormonal" class="sintoma"> Baixa libido</div>
-    <div class="symptom"><input type="checkbox" value="Digestivo" class="sintoma"> Língua esbranquiçada</div>
-    <div class="symptom"><input type="checkbox" value="Zinco e Ferro" class="sintoma"> Unha quebradiça</div>
-    <div class="symptom"><input type="checkbox" value="Tireoide" class="sintoma"> Queda de cabelo</div>
+        <!-- Quarta-feira -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>QUARTA-FEIRA</h2>
+                <h3>O PODER DO FÍGADO</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Água + sal integral</li>
+                <li>Comer alimentos ricos em enxofre</li>
+                <li>Tomar 10 min de sol no rosto</li>
+                <li>Evitar álcool e excesso de café</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Quarto totalmente escuro, sem luzes.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">🔥 PARABÉNS! VOCÊ ESTÁ ARRASANDO! 🔥</div>
+        </div>
 
-    <button onclick="avaliarInflamacao()">Avaliar</button>
+        <!-- Quinta-feira -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>QUINTA-FEIRA</h2>
+                <h3>O TURBO FINAL (JEJUM)</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Manter água + sal integral</li>
+                <li>Fazer jejum simples (12h entre jantar e café)</li>
+                <li>Jantar nutritivo, sem beliscar depois</li>
+                <li>Refletir: como você se sentiu nesta semana?</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Quarto na temperatura ideal e roupas leves.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">🚀 FANTÁSTICO! SUA DEDICAÇÃO É INSPIRADORA! 🚀</div>
+        </div>
 
-    <div class="result" id="resultado"></div>
+        <!-- Sexta-feira -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>SEXTA-FEIRA</h2>
+                <h3>PLANEJAMENTO DA SEMANA</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Revisar como foi a semana → O que funcionou? O que pode melhorar?</li>
+                <li>Anotar na agenda os compromissos da próxima semana</li>
+                <li>Separar receitas ou alimentos que você quer priorizar nos próximos dias</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Escreva 3 coisas boas que aconteceram na semana → gratidão ajuda no sono.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">📝 EXCELENTE! VOCÊ ESTÁ NO CAMINHO CERTO! 📝</div>
+        </div>
 
-    <div class="promo-text" id="promo-section" style="display: none;">
+        <!-- Sábado -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>SÁBADO</h2>
+                <h3>ORGANIZAÇÃO PRÁTICA</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Organizar lista de compras da próxima semana</li>
+                <li>Fazer um pré-planejamento das refeições (incluindo horários e jejum, se quiser)</li>
+                <li>Separar suplementos e deixar fácil para não esquecer</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Evitar refeições muito pesadas à noite.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">🛒 MARAVILHOSA! SUA ORGANIZAÇÃO É PERFEITA! 🛒</div>
+        </div>
 
-     <p style="font-size: 20px; font-weight: 600; color: #b03574;">
-        🌸 Um corpo inflamado cansa, dói e trava sua vida. Liberte-se 🌸
-      </p>
-     <!--
-     <a href="https://maismaravilhosa.com/" target="_blank" class="button">
-        🌸 Clique aqui e conheça o +Maravilhosa agora!
-      </a>
-      -->
-     <!--
-     <p style="font-size: 20px; font-weight: 600; color: #b03574;">
-        🌸 Um corpo inflamado cansa, dói e trava sua vida. Liberte-se!!! com o <strong>+Maravilhosa!</strong> 🌸
-      </p>
-      <a href="https://maismaravilhosa.com/" target="_blank" class="button">
-        🌸 Clique aqui e conheça o +Maravilhosa agora!
-      </a>
-      -->
-      <div class="whatsapp-share" id="whatsapp-share"></div>
+        <!-- Domingo -->
+        <div class="day-card">
+            <div class="day-header">
+                <h2>DOMINGO</h2>
+                <h3>PREPARO E CUIDADO PESSOAL</h3>
+            </div>
+            <ul class="habits-list">
+                <li>Raspar a língua ao acordar</li>
+                <li>Beber 300 ml de água em jejum</li>
+                <li>Preparar marmitas, lanches ou deixar alimentos pré-prontos (ex.: lavar folhas, cortar vegetais)</li>
+                <li>Fazer uma lista pessoal: metas da semana + autocuidado (o que você quer incluir para você?)</li>
+                <li>Revisar e ajustar horários de sono para a semana</li>
+            </ul>
+            <div class="sleep-hygiene">
+                <h4>Higiene do sono:</h4>
+                <p>Tomar um banho relaxante antes de dormir e deitar sem celular.</p>
+            </div>
+            <div class="cta-badge" style="margin-top: 20px;">✨ PERFEITO! VOCÊ MERECE TODA ADMIRAÇÃO! ✨</div>
+        </div>
+
+        <!-- Seção da Tata -->
+        <div class="tata-section">
+            <h2>🤖 Conheça a TATA - Sua Nutri Inteligente!</h2>
+            <p>A Tata é uma calculadora inteligente com infinitas combinações de alimentos, atendendo todas as suas necessidades nutricionais. A Tata é a Nutri que está sempre com você!</p>
+
+            <div class="tata-photo">
+                📱 Foto da Tata<br>
+                (Adicionar sua imagem aqui)
+            </div>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/wgHUPSlazng" allowfullscreen></iframe>
+            </div>
+
+            <a href="https://wa.me/16153304647?text=Nutri%20quero%20que%20a%20Tata%20calcule%20meu%20pratos." class="whatsapp-btn" target="_blank">
+                SOLICITAR ACESSO À TATA
+            </a>
+        </div>
+
+        <!-- Seção Quem Sou Eu -->
+        <div class="about-section">
+            <h2>✨ Quem sou eu?</h2>
+
+            <div class="about-content">
+                <div class="about-photo">
+                    <img src="eu.png" alt="Renata Borba - Nutricionista" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder">
+                        👩‍⚕️ Renata Borba<br>
+                        Nutricionista
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p><strong>Muito prazer, eu me chamo Renata Borba, nutricionista e criadora do +Maravilhosa</strong>, método já transformou a minha vida e de muitas Maravilhosas.</p>
+
+                    <p><strong>Eu fui a minha primeira paciente.</strong> Durante anos, vivi uma relação difícil com o meu corpo, a alimentação e a balança. Me sentia cansada, sem energia, com a autoestima abalada... até que decidi mudar.</p>
+
+                    <p>Através da nutrição e do controle hormonal, <strong>eliminei 25kg, que nunca mais ganhei de volta!</strong> Recuperei minha saúde e, o mais importante, reencontrei o amor por mim mesma.</p>
+
+                    <p>Foi aí que nasceu minha paixão pela nutrição e o desejo de ajudar outras mulheres a passarem pela mesma transformação que eu vivi — <strong>sem dietas restritivas, sem culpa e com resultados duradouros.</strong></p>
+
+                    <p>Hoje, com o meu método exclusivo, acompanho de perto mulheres reais que querem emagrecer, equilibrar seus hormônios e viver com mais leveza, saúde e liberdade.</p>
+
+                    <p><strong>Porque sim, é possível emagrecer de forma definitiva comendo de verdade e respeitando seu corpo.</strong></p>
+
+                    <p class="final-message"><strong>Seja bem-vinda ao início da sua nova história. Vamos juntas?</strong></p>
+                </div>
+            </div>
+
+            <div class="cta-badge" style="margin-top: 30px; background: rgba(255,255,255,0.2);">
+                🌺 PARABÉNS POR ESCOLHER SE TRANSFORMAR! 🌺
+            </div>
+        </div>
+
+        <!-- Seção do Programa +Maravilhosa -->
+        <div class="programa-section">
+            <h2>🌟 Conheça o +Maravilhosa</h2>
+            <p><strong>Essa é a última vez que você promete que vai emagrecer.</strong></p>
+            <p>A partir de agora tenho o compromisso de fazer você alcançar esse objetivo.</p>
+            <p>Assista a minha história e de muitas outras mulheres no vídeo abaixo e entenda:</p>
+
+            <ul class="benefits-list">
+                <li>✅ A importância da suplementação individualizada para o emagrecimento definitivo</li>
+                <li>✅ A maneira correta de montar suas refeições</li>
+                <li>✅ 3 passos que não vão te deixar engordar novamente</li>
+                <li>✅ Como funciona o jejum, seu potencializador para a queima de gordura</li>
+            </ul>
+
+            <a href="https://maismaravilhosa.com/" class="programa-btn" target="_blank">
+                🌟 DESCOBRIR O +MARAVILHOSA 🌟
+            </a>
+
+            <div class="cta-badge" style="margin-top: 30px; background: rgba(255,255,255,0.2);">
+                💖 PARABÉNS POR INVESTIR EM VOCÊ MESMA! 💖
+            </div>
+        </div>
+
+        <!-- CTA Final -->
+        <div class="final-cta">
+            <h3>🎊 SENSACIONAL! VOCÊ JÁ É UMA VENCEDORA! 🎊</h3>
+            <p>Você já deu o primeiro passo para uma vida mais saudável e equilibrada. Continue essa jornada incrível!</p>
+            <div style="margin-top: 20px; font-size: 1.2em;">
+                <span style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; margin: 5px;">
+                    🌟 PARABÉNS POR SER TÃO DETERMINADA!
+                </span>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function avaliarInflamacao() {
-      const sintomasMarcados = document.querySelectorAll('.sintoma:checked');
-      const numSintomas = sintomasMarcados.length;
+    <script>
+        // Efeito de progresso
+        let progress = 0;
+        const progressBar = document.getElementById('progressBar');
 
-      if (numSintomas === 0) {
-        document.getElementById('resultado').innerHTML = "<strong>Marque pelo menos um sintoma para avaliar.</strong>";
-        document.getElementById('promo-section').style.display = "none";
-        return;
-      }
+        function updateProgress() {
+            progress += Math.random() * 2;
+            if (progress > 100) progress = 100;
+            progressBar.style.width = progress + '%';
 
-      let nivel = "", mensagem = "";
-      if (numSintomas <= 2) {
-        nivel = "Leve 💛";
-        mensagem = "Seu corpo está mostrando sinais leves. A prevenção é o melhor caminho!";
-      } else if (numSintomas <= 3) {
-        nivel = "Moderada 🟠";
-        mensagem = "A inflamação está se espalhando. É hora de cuidar de você com mais atenção.";
-      } else {
-        nivel = "Alta 🔴";
-        mensagem = "Sinais de inflamação sistêmica! Vamos aliviar essa sobrecarga e restaurar seu equilíbrio.";
-      }
+            if (progress < 100) {
+                setTimeout(updateProgress, 100);
+            }
+        }
 
-      const sistemas = [];
-      const sintomasTexto = [];
+        // Iniciar animação de progresso quando a página carregar
+        window.addEventListener('load', function() {
+            setTimeout(updateProgress, 500);
+        });
 
-      sintomasMarcados.forEach(s => {
-        sistemas.push(s.value);
-        sintomasTexto.push(s.parentElement.innerText.trim());
-      });
+        // Efeito de check nos hábitos
+        document.querySelectorAll('.habits-list li').forEach(function(item) {
+            item.addEventListener('click', function() {
+                if (this.style.textDecoration === 'line-through') {
+                    this.style.textDecoration = 'none';
+                    this.style.opacity = '1';
+                    this.innerHTML = this.innerHTML.replace('☑', '☐');
+                } else {
+                    this.style.textDecoration = 'line-through';
+                    this.style.opacity = '0.6';
+                    this.innerHTML = this.innerHTML.replace('☐', '☑');
+                }
+            });
+        });
 
-      const unicosSistemas = [...new Set(sistemas)].join(', ');
-      const listaSintomas = sintomasTexto.join(', ');
+        // Animação suave ao rolar
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.day-card');
+            cards.forEach(function(card) {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
 
-      document.getElementById('resultado').innerHTML = `
-        <h3>Resultado:</h3>
-        <p><strong>Nível de inflamação:</strong> ${nivel}</p>
-        <p>${mensagem}</p>
-        <p><strong>Possíveis órgãos ou sistemas afetados:</strong> ${unicosSistemas}</p>
-        <p><strong>Sintomas identificados:</strong> ${listaSintomas}</p>
-        <p><strong>Me chama para entender como equilibrar tudo isso pela alimentação!</strong></p>
-      `;
-
-      const textoWhatsapp =
-        `Fiz a autoavaliação da inflamação e o resultado foi: ${nivel}.\n` +
-        `Órgãos/sistemas afetados: ${unicosSistemas}.\n` +
-        `Sintomas que marquei: ${listaSintomas}.\n\n` +
-        `Quero ajuda para equilibrar meu corpo com alimentação!`;
-
-      const link = `https://wa.me/16153304647?text=${encodeURIComponent(textoWhatsapp)}`;
-
-      document.getElementById('whatsapp-share').innerHTML =
-        `<a href="${link}" target="_blank">💬 Clique aqui e me envie o seu resultado</a>`;
-
-      document.getElementById('promo-section').style.display = "block";
-    }
-  </script>
-
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
