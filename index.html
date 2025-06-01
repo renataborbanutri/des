@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio de Uma Semana de Desinflamação - +Maravilhosa</title>
+    <title>Semana da Desinflamação</title>
 
     <!-- ====== Facebook Pixel Code ====== -->
     <script>
@@ -199,14 +199,14 @@
             transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(214, 76, 74, 0.2);
         }
-
+/*
         .habits-list li::before {
             content: '☐ ';
             font-size: 1.2em;
             margin-right: 10px;
             color: #D64C4A;
         }
-
+*/
         /* BLOCO DE HIGIENE DO SONO */
         .sleep-hygiene {
             background: linear-gradient(45deg, #DEA37B, #FCF9CE);
@@ -272,29 +272,29 @@
             border: 3px solid #FCF9CE;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        /* =====================================================================
-   Container que se ajusta à proporção original da imagem (largura fixa)
-   ===================================================================== */
-.tata-photo-rect {
-  width: 200px;            /* largura fixa (ou a que você quiser) */
-  height: auto;            /* altura definida pela proporção da imagem */
-  border-radius: 10px;     /* cantos arredondados (opcional) */
-  overflow: hidden;        /* esconde excessos, se houver */
-  border: 3px solid #FCF9CE;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: rgba(252, 249, 206, 0.2);
+          /* =====================================================================
+          Container que se ajusta à proporção original da imagem (largura fixa)
+          ===================================================================== */
+        .tata-photo-rect {
+          width: 200px;            /* largura fixa (ou a que você quiser) */
+          height: auto;            /* altura definida pela proporção da imagem */
+          border-radius: 10px;     /* cantos arredondados (opcional) */
+          overflow: hidden;        /* esconde excessos, se houver */
+          border: 3px solid #FCF9CE;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          background: rgba(252, 249, 206, 0.2);
 
-  /* <<< adicionando margin para centralizar >>> */
-  margin: 0 auto;         /* centraliza o container na horizontal */
-  display: block;         /* garante que margin:auto funcione */
-}
+          /* <<< adicionando margin para centralizar >>> */
+          margin: 0 auto;         /* centraliza o container na horizontal */
+          display: block;         /* garante que margin:auto funcione */
+        }
 
-/* Faz a imagem encaixar inteiramente na largura de 200px */
-.tata-photo-rect .tata-img-rect {
-  width: 100%;
-  height: auto;                   /* mantém a proporção original */
-  display: block;
-}
+        /* Faz a imagem encaixar inteiramente na largura de 200px */
+        .tata-photo-rect .tata-img-rect {
+          width: 100%;
+          height: auto;                   /* mantém a proporção original */
+          display: block;
+        }
 
         .video-container {
             margin: 30px 0;
@@ -577,7 +577,7 @@
             <div class="logo">
                 <img src="logo.png" alt="Logo +Maravilhosa">
             </div>
-            <h1>Desafio de Uma Semana de Desinflamação</h1>
+            <h1>Semana da <strong>Desinflamação</strong></h1>
             <p>Transforme sua vida em 7 dias com hábitos poderosos!</p>
             <div class="cta-badge">
                 🎉 VOCÊ É EXTRAORDINÁRIA POR QUERER MUDAR! 🎉
@@ -587,28 +587,76 @@
             </div>
         </div>
 
-        <!-- Segunda-feira -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>SEGUNDA-FEIRA</h2>
-                <h3>O DESPERTAR DO CORPO</h3>
-            </div>
-            <ul class="habits-list">
-                <li>Raspar a língua ao acordar</li>
-                <li>Beber 300 ml de água em jejum</li>
-                <li>Adicionar uma pitada de sal integral</li>
-                <li>Evitar açúcar escondido (olhar rótulos)</li>
-                <li>Montar refeições completas</li>
-                <li>Fazer 5 min de respiração ou alongamento</li>
-            </ul>
-            <div class="sleep-hygiene">
-                <h4>Higiene do sono:</h4>
-                <p>Desligar telas 30 min antes de dormir.</p>
-            </div>
-            <div class="cta-badge" style="margin-top: 20px;">
-                🌟 INCRÍVEL! VOCÊ ESTÁ TRANSFORMANDO SUA VIDA! 🌟
-            </div>
-        </div>
+       <!-- Segunda-feira -->
+    <div class="day-card">
+      <div class="day-header">
+        <h2>SEGUNDA-FEIRA</h2>
+        <h3>O DESPERTAR DO CORPO</h3>
+      </div>
+      <ul class="habits-list">
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-raspar"
+            />
+            Raspar a língua ao acordar
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-agua-jejum"
+            />
+            Beber 300 ml de água em jejum
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-sal-integral"
+            />
+            Adicionar uma pitada de sal integral
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-evitar-acucar"
+            />
+            Evitar açúcar escondido (olhar rótulos)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-montar-refeicoes"
+            />
+            Montar refeições completas
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-respiracao-alongamento"
+            />
+            Fazer 5 min de respiração ou alongamento
+          </label>
+        </li>
+      </ul>
+      <div class="sleep-hygiene">
+        <h4>Higiene do sono:</h4>
+        <p>Desligar telas 30 min antes de dormir.</p>
+      </div>
+      <div class="cta-badge" style="margin-top: 20px;">
+        🌟 INCRÍVEL! VOCÊ ESTÁ TRANSFORMANDO SUA VIDA! 🌟
+      </div>
+    </div>
 
         <!-- Terça-feira -->
         <div class="day-card">
@@ -829,11 +877,11 @@
             </div>
 
             <a
-                href="https://wa.me/16153304647?text=Nutri%20quero%20que%20a%20Tata%20calcule%20meu%20pratos."
-                class="whatsapp-btn"
-                target="_blank"
+              href="https://wa.me/16153304647?text=Ol%C3%A1%2C%20Nutri%21%20Preciso%20que%20a%20Tata%20me%20ajude%20a%20montar%20minhas%20refei%C3%A7%C3%B5es."
+              class="whatsapp-btn"
+              target="_blank"
             >
-                SOLICITAR ACESSO À TATA
+              Clique aqui para ter acesso a TATA
             </a>
         </div>
 
@@ -956,5 +1004,28 @@
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
     </script>
-</body>
+  <!-- =======================
+       Script para Persistir Checkboxes
+       ======================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Pega todos os checkboxes dentro das listas
+      const checkboxes = document.querySelectorAll('.habits-list input[type="checkbox"]');
+
+      checkboxes.forEach(cb => {
+        // Tenta ler do localStorage se já existe valor para este id
+        const salvo = localStorage.getItem(cb.id);
+        if (salvo === 'true') {
+          cb.checked = true;
+        }
+
+        // Quando o usuário marcar/desmarcar, salva no localStorage
+        cb.addEventListener('change', () => {
+          localStorage.setItem(cb.id, cb.checked.toString());
+        });
+      });
+    });
+  </script>
+
+    </body>
 </html>
