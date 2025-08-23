@@ -567,6 +567,72 @@
           color: #DEA37B;
         }
 
+
+    .video-container iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+  .jafe-teaser{
+    margin-top:16px;background:linear-gradient(0deg,#fff8fc, #faf5ff);
+    border:1px solid #f0e6f7;border-radius:16px;padding:16px 18px;
+    box-shadow:0 1px 8px rgba(0,0,0,.04)
+  }
+  .jafe-teaser h3{font-size:1.05rem;margin:0 0 .25rem 0}
+  .jafe-teaser p{margin:.25rem 0 .5rem}
+  .jafe-teaser ul{margin:.25rem 0 .75rem 0;padding:0;list-style:none}
+  .jafe-teaser li{margin:.25rem 0;padding-left:1.25rem;position:relative}
+  .jafe-teaser li::before{content:"✓";position:absolute;left:0;top:0;opacity:.75}
+  .jafe-cta{
+    display:inline-flex;gap:.5rem;align-items:center;
+    padding:.55rem .9rem;border-radius:999px;border:1px solid currentColor;
+    color:inherit;text-decoration:none;font-weight:600;
+    transition:background .2s,transform .06s
+  }
+  .jafe-cta:hover{background:rgba(0,0,0,.04)}
+  .jafe-cta:active{transform:translateY(1px)}
+  .jafe-meta{font-size:.85rem;opacity:.75;margin-top:.35rem}
+
+  /* PULSO SUAVE NO BOTÃO */
+  .jafe-cta--pulse{position:relative;animation:jafePulse 2.6s ease-in-out infinite}
+  @keyframes jafePulse{
+    0%  {transform:scale(1);box-shadow:0 0 0 0 rgba(0,0,0,.06)}
+    45% {transform:scale(1.03);box-shadow:0 0 0 10px rgba(0,0,0,0)}
+    100%{transform:scale(1);box-shadow:0 0 0 0 rgba(0,0,0,0)}
+  }
+  /* Ping de destaque extra, bem discreto */
+  .jafe-cta--pulse::after{
+    content:"";position:absolute;inset:0;border-radius:999px;pointer-events:none;
+    box-shadow:0 0 0 0 rgba(0,0,0,.08);animation:jafeRing 2.6s ease-out infinite
+  }
+  @keyframes jafeRing{
+    0%{box-shadow:0 0 0 0 rgba(0,0,0,.10)}
+    60%{box-shadow:0 0 0 14px rgba(0,0,0,0)}
+    100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}
+  }
+  /* Acessibilidade: respeita reduzir animação */
+  @media (prefers-reduced-motion: reduce){
+    .jafe-cta--pulse,.jafe-cta--pulse::after{animation:none}
+  }
+  .support-block{
+    margin-top:18px;background:#fff;border:1px solid #efe7fb;border-radius:16px;
+    padding:16px 18px;display:flex;align-items:center;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;box-shadow:0 1px 8px rgba(0,0,0,.04)
+  }
+  .support-copy h3{margin:0 0 .25rem 0;font-size:1.05rem}
+  .support-copy p{margin:.1rem 0 .25rem 0;opacity:.9}
+  .support-ctas{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1rem;border-radius:999px;
+    font-weight:700;text-decoration:none;border:1px solid transparent;transition:transform .06s, filter .2s
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn--whatsapp{background:#25D366;color:#fff;border-color:#22c65b}
+  .btn--whatsapp:hover{filter:brightness(0.97)}
+  .btn--instagram{background:#fff0f5;color:#e1306c;border-color:#ffcfe0}
+  .btn--instagram:hover{filter:brightness(0.98)}
+  .btn--email{background:#f3f0ff;color:#4b3fd6;border-color:#ddd5ff}
+  .btn--email:hover{filter:brightness(0.98)}
+  @media (max-width:640px){
+    .support-block{padding:14px}
+    .btn{width:100%;justify-content:center}
+  }
     </style>
 </head>
 
@@ -596,461 +662,106 @@
             -->
         </div>
 
-       <!-- Segunda-feira -->
+        <!-- ===============================
+         Aulas gravadas
+         =============================== -->
     <div class="day-card">
-      <div class="day-header">
-        <h2>Dia 1</h2>
-        <h3>O DESPERTAR DO CORPO</h3>
-      </div>
-      <ul class="habits-list">
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              id="segunda-raspar"
-            />
-            Raspar a língua ao acordar
-          </label>
-        </li>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              id="segunda-agua-jejum"
-            />
-            Beber 300 ml de água em jejum
-          </label>
-        </li>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              id="segunda-evitar-acucar"
-            />
-            Evitar açúcar escondido <a
-                    href="Açúcar escondido.pdf"
-                    download
-                    style="color: inherit; text-decoration: none;"
-                >
-                     (📥 Baixar PDF de açucar escondido)
-                </a>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              id="segunda-montar-refeicoes"
-            />
-            Montar refeições completas, usando a Tata
-          </label>
-        </li>
-        <li>
-          <label>
-            <input
-              type="checkbox"
-              id="segunda-respiracao-alongamento"
-            />
-            Fazer 5 min de respiração ou alongamento
-          </label>
-        </li>
-        <li>
-      <label>
-        <input type="checkbox" id="segunda-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="segunda-carta" />
-        Escrever uma carta para você com os seus maiores desejos em relação a sua saúde e ao seu corpo
-      </label>
-    </li>
-      </ul>
-      <div class="sleep-hygiene">
-        <h4>Higiene do sono:</h4>
-        <p>Desligar telas 30 min antes de dormir.</p>
-      </div>
-      <div class="cta-badge" style="margin-top: 20px;">
-        INCRÍVEL! VOCÊ ESTÁ TRANSFORMANDO SUA VIDA!
-      </div>
-    </div>
-  <!-- Vídeo da Live de Segunda-feira-->
+        <div class="day-header">
+            <h2>Aulas semana da desinflamação</h2>
+        </div>
+        <ul class="habits-list">
+<!-- Vídeo da Live de Segunda-feira-->
     <div class="video-container">
+
       <iframe
-        src="https://www.youtube.com/embed/Fnrb2Oc72tc"
+        src="https://www.youtube.com/embed/mx7ELJZwm7U?"
         allowfullscreen
       ></iframe>
     </div>
     <!-- Fim do Vídeo da Live de Segunda-feira -->
-        <!-- Terça-feira-->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 2</h2>
-    <h3>LIMPEZA INTERNA</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="terca-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-agua-jejum" />
-        Beber 400 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-sal-integral" />
-        Começar com água + sal integral(explicação na live)
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-evitar-oleos" />
-        Evitar óleos inflamatórios. Ex. soja, milho e canola
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-folhas-amargas" />
-        Comer vegetais do tipo A
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-deitar-cedo" />
-        Deitar 30 min mais cedo
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="terca-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
+<!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 1</h2>
+      <iframe
+        src="https://www.youtube.com/embed/4Ur2y5xmidk"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+<!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 2</h2>
+      <iframe
+        src="https://www.youtube.com/embed/6QrhGQ6uh5w"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+    <!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 3</h2>
+      <iframe
+        src="https://www.youtube.com/embed/L_jK7OH_hbw"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+        <!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 4</h2>
+      <iframe
+        src="https://www.youtube.com/embed/niwrj6fTOUI"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+    <!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 5</h2>
+      <iframe
+        src="https://www.youtube.com/embed/ZK28gIg-w6c?"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+        <!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+     <h2>AULA 6</h2>
+      <iframe
+        src="https://www.youtube.com/embed/nI-VrfUjYk0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+     <!-- Fim do Vídeo da Live de Segunda-feira -->
+        <!-- Vídeo da Live de Segunda-feira-->
+ <div class="video-container">
+  <h2>AULA 7</h2>
+  <iframe
+    src="https://www.youtube.com/embed/Ykg3HYc___Y"
+    title="Aula 7"
+    allowfullscreen
+  ></iframe>
+
+  <aside class="jafe-teaser" role="complementary" aria-label="Sugerido: Conheça o JAFE">
+    <h3>Próximo passo (opcional) ✨</h3>
+    <p>Se essa aula fez sentido, o <strong>JAFE</strong> te guia por 21 dias com:</p>
+    <ul>
+      <li><strong>Tracker simples</strong> para seguir sem pensar</li>
+      <li><strong>Tata calculadora</strong> montando seus pratos</li>
+      <li><strong>Foco feminino</strong> e rotina realista</li>
     </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Ritual relaxante (banho morno, chá calmante, leitura).</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    💪 VOCÊ É INCRÍVEL! CONTINUE ASSIM! 💪
-  </div>
-</div>
-<!-- Vídeo da Live de terca-feira-->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/T0JeqwNW2LE"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <!-- Fim do Vídeo da Live de  terca-feira- -->
-<!-- Vídeo da agua+sal de terca-feira-->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/2mCIDjJoyJ4"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <!-- Fim do Vídeo da Live de  terca-feira- -->
-<!-- Quarta-feira -->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 3</h2>
-    <h3>O ÚNICO DETOX QUE FUNCIONA</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="quarta-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quarta-agua-jejum" />
-        Beber 450 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quarta-sal-integral" />
-        Água + sal integral
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quarta-enxofre" />
-        Escrever em um papel todas as vezes que consumir açúcar no dia
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quarta-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-  </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Quarto totalmente escuro, sem luzes.</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    🔥 PARABÉNS! VOCÊ ESTÁ ARRASANDO! 🔥
-  </div>
-</div>
-
-<!-- Vídeo da Live de quarta-feira-->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/KhEmxV-8x4s"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <!-- Fim do Vídeo da Live de  quarta-feira- -->
-
-<!-- Quinta-feira-->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 4</h2>
-    <h3>O ACELERADOR (JEJUM)</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-agua-jejum" />
-        Beber 500 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-sal-integral" />
-        Manter água + sal integral
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-jejum-12h" />
-        Fazer jejum simples (12h entre jantar e café)
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-jantar-nutritivo" />
-        Não beliscar entre as refeições
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-refletir-sentir" />
-        Refletir: como você está até aqui?
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="quinta-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-  </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Quarto na temperatura ideal e roupas leves.</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    FANTÁSTICO! SUA DEDICAÇÃO É INSPIRADORA!
-  </div>
-</div>
-
-        <!-- Vídeo da Live de quinta-feira-->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/JBe4oo97sL0"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <!-- Fim do Vídeo da Live -->
-
-<!-- Sexta-feira-->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 5</h2>
-    <h3>PLANEJAMENTO DA SEMANA</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-agua-jejum" />
-        Beber 500 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-sal-integral" />
-        Água + sal integral
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-revisar-semana" />
-        Refletir como foi a semana. Muito orgulho por ter chegado até aqui!
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-separar-receitas" />
-        Separar receitas ou alimentos que você quer priorizar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sexta-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-  </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Escreva 3 coisas boas que aconteceram na semana → gratidão ajuda no sono.</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    📝 EXCELENTE! VOCÊ ESTÁ NO CAMINHO CERTO! 📝
-  </div>
-</div>
-<!-- Vídeo da Live de sexta-feira-->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/Z58j8UgX4ZM"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <!-- Fim do Vídeo da Live -->
-<!-- Sábado-->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 6</h2>
-    <h3>ORGANIZAÇÃO PRÁTICA</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-agua-jejum" />
-        Beber 500 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-sal-integral" />
-        Água + sal integral
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-lista-compras" />
-        Organizar lista de compras da próxima semana
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-separar-suplementos" />
-        Separar suplementos e deixar fácil para não esquecer
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="sabado-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-  </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Evitar refeições muito pesadas à noite.</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    🛒 MARAVILHOSA! SUA ORGANIZAÇÃO É PERFEITA! 🛒
-  </div>
-</div>
-
-<!-- Domingo-->
-<div class="day-card">
-  <div class="day-header">
-    <h2>Dia 7</h2>
-    <h3>PREPARO E CUIDADO PESSOAL</h3>
-  </div>
-  <ul class="habits-list">
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-raspar" />
-        Raspar a língua ao acordar
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-agua-jejum" />
-        Beber 500 ml de água em jejum
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-sal-integral" />
-        Água + sal integral
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-preparar-marmitas" />
-        Preparar marmitas, deixar alimentos pré-prontos (ex.: lavar folhas, cortar vegetais)
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-lista-autocuidado" />
-        Fazer uma lista pessoal: metas da semana + autocuidado (O que você quer incluir para você?)
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-ajustar-sono" />
-        Revisar e ajustar horários de sono para a semana
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" id="domingo-enxofre" />
-        Anotar quanto bebeu de água no dia
-      </label>
-    </li>
-  </ul>
-  <div class="sleep-hygiene">
-    <h4>Higiene do sono:</h4>
-    <p>Tomar um banho relaxante antes de dormir e deitar sem celular.</p>
-  </div>
-  <div class="cta-badge" style="margin-top: 20px;">
-    ✨ PERFEITO! VOCÊ MERECE TODA ADMIRAÇÃO! ✨
-  </div>
+    <a
+      class="jafe-cta jafe-cta--pulse"
+      href="https://renataborbanutri.github.io/jejum"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir a página do JAFE (abre em nova aba)"
+    >
+     👉 Conheça o JAFE <span aria-hidden="true"></span>
+    </a>
+    <div class="jafe-meta">Leva ~1 min • sem compromisso</div>
+  </aside>
 </div>
 
 
@@ -1138,6 +849,535 @@
             </li>
             </ul>
     </div>
+
+       <!-- Segunda-feira -->
+    <div class="day-card">
+      <div class="day-header">
+        <h2>Dia 1</h2>
+        <h3>O DESPERTAR DO CORPO</h3>
+      </div>
+      <ul class="habits-list">
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-raspar"
+            />
+            Raspar a língua ao acordar
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-agua-jejum"
+            />
+            Beber 300 ml de água em jejum
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-evitar-acucar"
+            />
+            Evitar açúcar escondido
+          </label>
+        </li>
+
+        <li>
+      <label>
+        <input type="checkbox" id="segunda-enxofre" />
+        Ler Ebook que ensina montar o seu prato
+      </label>
+    </li>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              id="segunda-respiracao-alongamento"
+            />
+            Fazer 5 min de alongamento
+          </label>
+        </li>
+        <li>
+      <label>
+        <input type="checkbox" id="segunda-enxofre" />
+        Calcular meta de água usando a calculadora
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="segunda-carta" />
+        Escrever uma carta para você com os seus maiores desejos em relação a sua saúde e ao seu corpo
+      </label>
+    </li>
+
+  <div class="day-card">
+    <div class="day-header">
+      <ul>
+        <h2>Materiais para Dia 1</h2>
+        <ul class="habits-list">
+        <li>
+        <a
+                    href="Açúcar escondido.pdf"
+                    download
+                    style="color: "black"; text-decoration: none;"
+                >
+                     📥 Clique aqui para baixar Ebook de açúcar escondido
+        </a>
+        </li>
+
+        <li>
+        <a
+                    href="https://renataborbanutri.github.io/water/"
+                    target="_blank"
+                    style="color: "black"; text-decoration: none;"
+                >
+                    💧 Clique aqui para calcular sua Meta de Água
+                </a>
+        </li>
+
+        <li>
+        <a
+                    href="montar_prato.pdf"
+                    target="_blank"
+                    style="color: "black"; text-decoration: none;"
+                >
+                    📥 Clique aqui para baixar Ebook que ensina montar o seu prato
+                </a>
+        </li>
+
+       </ul>
+      </div>
+    </div>
+
+      <div class="sleep-hygiene">
+        <h4>Higiene do sono:</h4>
+        <p>Desligar telas 30 min antes de dormir.</p>
+      </div>
+      <div class="cta-badge" style="margin-top: 20px;">
+        INCRÍVEL! VOCÊ ESTÁ TRANSFORMANDO SUA VIDA!
+      </div>
+    </div>
+
+    <!-- Terça-feira-->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 2</h2>
+    <h3>LIMPEZA INTERNA</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="terca-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="terca-agua-jejum" />
+        Beber 400 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="terca-evitar-oleos" />
+        Evitar óleos inflamatórios. Ex. soja, milho e canola (Ebook melhores óleos para cozinhar)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="terca-deitar-cedo" />
+        Deitar 30 min mais cedo
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="terca-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+    </ul>
+
+      <div class="day-card">
+    <div class="day-header">
+      <ul>
+        <h2>Materiais para Dia 2</h2>
+        <ul class="habits-list">
+
+        <li>
+        <a
+                    href="oleos.pdf"
+                    target="_blank"
+                    style="color: "black"; text-decoration: none;"
+                >
+                    📥 Clique aqui para baixar Ebook melhores óleos para cozinhar
+                </a>
+        </li>
+
+       </ul>
+      </div>
+    </div>
+
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Ritual relaxante (banho morno, chá calmante, leitura).</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    💪 VOCÊ É INCRÍVEL! CONTINUE ASSIM! 💪
+  </div>
+</div>
+
+<!-- Quarta-feira -->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 3</h2>
+    <h3>O ÚNICO DETOX QUE FUNCIONA</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="quarta-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quarta-agua-jejum" />
+        Beber 450 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quarta-enxofre" />
+        Escrever em um papel todas as vezes que consumir açúcar no dia
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quarta-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quarta-enxofre" />
+        Comece a tirar foto de todos os seus pratos e guarde as fotos no seu celular
+      </label>
+    </li>
+  </ul>
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Quarto totalmente escuro, sem luzes.</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    🔥 PARABÉNS! VOCÊ ESTÁ ARRASANDO! 🔥
+  </div>
+</div>
+
+
+<!-- Quinta-feira-->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 4</h2>
+    <h3>O ACELERADOR (JEJUM)</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-agua-jejum" />
+        Beber 500 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-jejum-12h" />
+        Fazer jejum simples (12h entre jantar e café)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-jantar-nutritivo" />
+        Não beliscar entre as refeições
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-refletir-sentir" />
+        Refletir: como você está até aqui?
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+  </ul>
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Quarto na temperatura ideal e roupas leves.</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    FANTÁSTICO! SUA DEDICAÇÃO É INSPIRADORA!
+  </div>
+</div>
+
+
+<!-- Sexta-feira-->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 5</h2>
+    <h3>PLANEJAMENTO DA SEMANA</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="sexta-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sexta-agua-jejum" />
+        Beber 500 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-jejum-12h" />
+        Manter jejum simples (12h entre jantar e café)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sexta-revisar-semana" />
+        Refletir como foi a semana. Muito orgulho por ter chegado até aqui!
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sexta-separar-receitas" />
+        Separar receitas ou alimentos que você quer priorizar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sexta-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+  </ul>
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Escreva 3 coisas boas que aconteceram na semana → gratidão ajuda no sono.</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    📝 EXCELENTE! VOCÊ ESTÁ NO CAMINHO CERTO! 📝
+  </div>
+</div>
+
+<!-- Sábado-->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 6</h2>
+    <h3>ORGANIZAÇÃO PRÁTICA</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="sabado-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sabado-agua-jejum" />
+        Beber 500 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-jejum-12h" />
+        Manter jejum no mínimo 12h (entre a última e a primeira refeição)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sabado-lista-compras" />
+        Organizar lista de compras da próxima semana
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sabado-separar-suplementos" />
+        Começar a reparar todas as mudanças que aconteceramno seu corpo
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="sabado-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+  </ul>
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Evitar refeições muito pesadas à noite.</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    🛒 MARAVILHOSA! SUA ORGANIZAÇÃO É PERFEITA! 🛒
+  </div>
+</div>
+
+<!-- Domingo-->
+<div class="day-card">
+  <div class="day-header">
+    <h2>Dia 7</h2>
+    <h3>PREPARO E CUIDADO PESSOAL</h3>
+  </div>
+  <ul class="habits-list">
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-raspar" />
+        Raspar a língua ao acordar
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-agua-jejum" />
+        Beber 500 ml de água em jejum
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="quinta-jejum-12h" />
+        Manter jejum no mínimo 12h (entre a última e a primeira refeição)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-preparar-marmitas" />
+        Preparar marmitas, deixar alimentos pré-prontos (ex.: lavar folhas, cortar vegetais)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-lista-autocuidado" />
+        Fazer uma lista pessoal: metas da semana + autocuidado (O que você quer incluir para você?)
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-ajustar-sono" />
+        Revisar e ajustar horários de sono para a semana
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" id="domingo-enxofre" />
+        Anotar quanto bebeu de água no dia
+      </label>
+    </li>
+  </ul>
+  <div class="sleep-hygiene">
+    <h4>Higiene do sono:</h4>
+    <p>Tomar um banho relaxante antes de dormir e deitar sem celular.</p>
+  </div>
+  <div class="cta-badge" style="margin-top: 20px;">
+    ✨ PERFEITO! VOCÊ MERECE TODA ADMIRAÇÃO! ✨
+  </div>
+    <aside class="jafe-teaser" role="complementary" aria-label="Sugerido: Conheça o JAFE">
+    <h3>Próximo passo (opcional) ✨</h3>
+    <p>Se essa aula fez sentido, o <strong>JAFE</strong> te guia por 21 dias com:</p>
+    <ul>
+      <li><strong>Tracker simples</strong> para seguir sem pensar</li>
+      <li><strong>Tata calculadora</strong> montando seus pratos</li>
+      <li><strong>Foco feminino</strong> e rotina realista</li>
+    </ul>
+    <a
+      class="jafe-cta jafe-cta--pulse"
+      href="https://renataborbanutri.github.io/jejum"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir a página do JAFE (abre em nova aba)"
+    >
+     👉 Conheça o JAFE <span aria-hidden="true"></span>
+    </a>
+    <div class="jafe-meta">Leva ~1 min • sem compromisso</div>
+  </aside>
+</div>
+
+
+        <!-- ===============================
+         Bonus Lives
+         =============================== -->
+    <div class="day-card">
+        <div class="day-header">
+            <h2>Bônus Lives exclusivas</h2>
+        </div>
+        <ul class="habits-list">
+<!-- Vídeo da Live de Segunda-feira-->
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/Fnrb2Oc72tc"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de Segunda-feira -->
+<!-- Vídeo da Live de terca-feira-->
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/T0JeqwNW2LE"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de  terca-feira- -->
+<!-- Vídeo da agua+sal de terca-feira-->
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/2mCIDjJoyJ4"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de  terca-feira- -->
+    <!-- Vídeo da Live de quarta-feira-->
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/KhEmxV-8x4s"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live de  quarta-feira- -->
+          <!-- Vídeo da Live de quinta-feira-->
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/JBe4oo97sL0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <!-- Fim do Vídeo da Live -->
+    <!-- Vídeo da Live de sexta-feira
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/Z58j8UgX4ZM"
+        allowfullscreen
+      ></iframe>
+    </div>
+    -->
+    <!-- Fim do Vídeo da Live -->
+
+        </ul>
+    </div>
+
+
         <!-- Seção Quem Sou Eu -->
         <div class="about-section">
             <h2>✨ Quem sou eu?</h2>
@@ -1190,15 +1430,53 @@
                         <strong>Seja bem-vinda ao início da sua nova história. Vamos juntas?</strong>
                     </p>
                 </div>
+
             </div>
 <!--
             <a href="https://renataborbanutri.github.io/semana_pagina/" class="programa-btn" target="_blank">
                 🌟 OFERTA EXCLUSIVA 🌟
             </a>
--->
+--><div class="support-block" role="region" aria-label="Canais de suporte">
+  <div class="support-copy">
+    <h3>Precisa de ajuda agora?</h3>
+    <p>Fale com meu suporte.</p>
+  </div>
+
+  <div class="support-ctas">
+    <!-- WhatsApp: use somente dígitos no wa.me -->
+    <a
+      class="btn btn--whatsapp"
+      href="https://wa.me/16153304647?text=Estou%20na%20semana%20da%20Desinflama%C3%A7%C3%A3o"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir conversa no WhatsApp com mensagem: Estou na semana da Desinflamação"
+    >
+      WhatsApp do Suporte
+    </a>
+
+    <!-- E-mail -->
+    <a
+      class="btn btn--email"
+      href="mailto:suportedamaravilhosa@gmail.com?subject=Suporte%20%2BMaravilhosa&body=Estou%20na%20semana%20da%20Desinflama%C3%A7%C3%A3o"
+      aria-label="Enviar e-mail para suportedamaravilhosa@gmail.com"
+    >
+      Suporte por e-mail
+    </a>
+    <!-- Instagram -->
+    <a
+      class="btn btn--instagram"
+      href="https://instagram.com/nutricionistanoseua"
+      target="_blank"
+      rel="me noopener nofollow"
+      aria-label="Abrir o Instagram da Renata Borba em nova aba"
+    >
+      Instagram @nutricionistanoseua
+    </a>
+  </div>
+</div>
         </div>
 
-        <!-- Seção do Programa +Maravilhosa-->
+        <!-- Seção do Programa +Maravilhosa
         <div class="programa-section">
             <h2>🌟 Conheça o +Maravilhosa</h2>
             <p><strong>Essa é a última vez que você promete que vai emagrecer.</strong></p>
@@ -1231,7 +1509,7 @@
             </div>
         </div>
     </div>
-
+-->
     <!-- EXEMPLO DE SCRIPT PARA “PROGRESS BAR” (opcional) -->
     <script>
         // Se quiser animar a progress bar conforme o usuário rola a página, você pode
