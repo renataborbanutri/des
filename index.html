@@ -859,15 +859,16 @@
 
   <ul class="habits-list">
     <li>
-      <a
-        href="pilares.html"
-        download="pilares.html"
-        style="color: inherit; text-decoration: none;"
-        aria-label="Baixar arquivo pilares.html"
-      >
-        📥 Baixar Material como montar seus pratos
-      </a>
-    </li>
+  <a
+    id="dl-pilares"
+    href="pilares.html"
+    download="pilares.html"
+    style="color: inherit; text-decoration: none;"
+    aria-label="Baixar arquivo pilares.html"
+  >
+    📥 Baixar Material como montar seus pratos
+  </a>
+</li>
   </ul>
 </div>
 
@@ -1555,8 +1556,37 @@
                 cb.addEventListener('change',()=>localStorage.setItem(id,cb.checked.toString()));
             });
         });
-    </script>
+
+         (function () {
+    const link = document.getElementById('dl-pilares');
+    if (!link) return;
+
+    link.addEventListener('click', async function (e) {
+      // Tenta baixar como arquivo em vez de abrir
+      e.preventDefault();
+      try {
+        const resp = await fetch('pilares.html', { cache: 'no-store' });
+        if (!resp.ok) throw new Error('Arquivo não encontrado');
+        const text = await resp.text();
+
+        // Usa octet-stream para sugerir download em mobile
+        const blob = new Blob([text], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'pilares.html';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        // Se algo falhar, abre normalmente (usuária pode salvar pelo menu do navegador)
+        window.location.href = 'pilares.html';
+      }
+    }, { passive: false });
+  })();
+        </script>
 
     </body>
 </html>
-
